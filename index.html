@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<title>Et Cetera - Premium Fashion Wear</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #C68A59;
+  --primary-dark: #A86F3F;
+  --primary-light: #E8B478;
+  --secondary: #2D3436;
+  --accent: #FF6B6B;
+  --light: #F5F7FA;
+  --white: #FFFFFF;
+  --text: #333333;
+  --text-light: #666666;
+  --shadow: 0 10px 40px rgba(0,0,0,0.1);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+  background: var(--white);
+}
+
+/* ===== NAVBAR ===== */
+nav {
+  background: var(--white);
+  padding: 1.2rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+nav.scrolled {
+  padding: 0.8rem 0;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+  padding: 0.5rem 0;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2.5px;
+  background: var(--primary);
+  transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 0.4rem;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background: var(--text);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* ===== HEADER HERO ===== */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-image: url('assets/bgetcet.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(198, 138, 89, 0.8), rgba(45, 52, 54, 0.7));
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--white);
+  max-width: 800px;
+  padding: 2rem;
+  animation: slideUp 1s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 900;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  text-shadow: 2px 2px 20px rgba(0,0,0,0.3);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  opacity: 0.95;
+  margin-bottom: 3rem;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: slideUp 1.2s ease;
+}
+
+.btn {
+  padding: 1rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary {
+  background: var(--white);
+  color: var(--primary);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.15);
+  color: var(--white);
+  border: 2px solid var(--white);
+  backdrop-filter: blur(10px);
+}
+
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.25);
+  border-color: var(--primary-light);
+  transform: translateY(-5px);
+}
+
+/* ===== MEDIA QUERIES NAV ===== */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    flex-direction: column;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .nav-links.active {
+    max-height: 500px;
+  }
+
+  .nav-links a {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--light);
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+}
+
+
+/* ===== ABOUT SECTION ===== */
+.about {
+  padding: 80px 0;
+  background: linear-gradient(135deg, var(--light), #F9FAFB);
+}
+
+.section-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  letter-spacing: -1px;
+}
+
+.section-subtitle {
+  color: var(--text-light);
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  font-weight: 300;
+}
+
+.section-divider {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  margin-bottom: 2rem;
+  border-radius: 10px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.about-content p {
+  color: var(--text-light);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 30px 70px rgba(0,0,0,0.2);
+}
+
+/* ===== CATEGORY SECTION ===== */
+.category {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #F9FAFB, var(--light));
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.category-item {
+  position: relative;
+  height: 320px;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  group: 'category';
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.category-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(198, 138, 89, 0.7), rgba(45, 52, 54, 0.8));
+  z-index: 1;
+  transition: all 0.5s ease;
+}
+
+.category-item:hover::before {
+  background: linear-gradient(135deg, rgba(198, 138, 89, 0.5), rgba(45, 52, 54, 0.6));
+}
+
+.category-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+}
+
+.category-item:hover .category-image {
+  transform: scale(1.1);
+}
+
+.category-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+  color: white;
+  transition: all 0.4s ease;
+}
+
+.category-content h3 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.category-content p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.category-item:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+/* ===== PRODUCTS SECTION ===== */
+.products {
+  padding: 80px 0;
+  background: var(--white);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.product-item {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.product-image {
+  position: relative;
+  overflow: hidden;
+  height: 250px;
+  background: var(--light);
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.product-item:hover .product-image img {
+  transform: scale(1.15);
+}
+
+.product-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--accent);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  z-index: 2;
+  animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.product-info {
+  padding: 1.5rem;
+}
+
+.product-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.product-price {
+  font-size: 1.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.product-rating {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.product-item:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+/* ===== COLLECTION TITLE ===== */
+.collection-category {
+  animation: fadeInUp 0.6s ease;
+  margin: 0 auto 3rem auto;
+  text-align: center;
+  max-width: 1200px;
+}
+
+.collection-title {
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: center;
+  margin: 0 auto 2rem auto;
+  color: var(--primary);
+  position: relative;
+  padding-bottom: 1.5rem;
+  border-bottom: 3px solid var(--primary);
+  display: inline-block;
+}
+
+.collection-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 10px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== HOW TO BUY SECTION ===== */
+.steps {
+  padding: 80px 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.steps::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('assets/howtobuy-bg.jpg');
+  background-size: cover;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.steps-content {
+  position: relative;
+  z-index: 1;
+}
+
+.steps-title, .steps-subtitle {
+  color: white;
+  text-align: center;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.step-card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.step-number {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.step-card h4 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+
+.step-card p {
+  opacity: 0.95;
+  line-height: 1.8;
+  font-weight: 300;
+}
+
+.step-card:hover {
+  background: rgba(255,255,255,0.15);
+  transform: translateY(-15px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+  border-color: rgba(255,255,255,0.4);
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact {
+  padding: 80px 0;
+  background: linear-gradient(135deg, var(--light), #F9FAFB);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.contact-icon {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.contact-details h4 {
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.contact-details p {
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid var(--light);
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(198, 138, 89, 0.1);
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 1.2rem;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(198, 138, 89, 0.3);
+}
+
+.contact-form button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(198, 138, 89, 0.4);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--secondary);
+  color: white;
+  padding: 4rem 0 2rem;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-column h4 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.footer-column ul {
+  list-style: none;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-column a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.footer-column a:hover {
+  color: var(--primary);
+  padding-left: 0.3rem;
+}
+
+.footer-social {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  width: 45px;
+  height: 45px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.social-icon:hover {
+  background: var(--primary);
+  transform: translateY(-5px) rotate(10deg);
+}
+
+.footer-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+  margin: 2rem 0;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 6rem 2rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .products-grid,
+  .category-grid,
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .navbar-container {
+    padding: 0 1rem;
+  }
+
+  .nav-links {
+    top: calc(100% - 1px);
+  }
+
+  .hero {
+    padding: 4rem 1rem;
+  }
+
+  .about-grid,
+  .contact-grid {
+    gap: 2rem;
+  }
+}
+</style>
+</head>
+
+<body>
+<!-- NAVBAR -->
+<nav>
+  <div class="navbar-container">
+    <a href="#" class="logo">
+      <i class="fas fa-shopping-bag"></i>
+      ET CETERA
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#category">Category</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#steps">How To Buy</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section id="hero" class="hero">
+  <div class="hero-content">
+    <h1>ET CETERA</h1>
+    <p>Simple • Modern • Everyday Wear</p>
+    <div class="hero-buttons">
+      <button class="btn btn-primary" onclick="document.getElementById('category').scrollIntoView({behavior: 'smooth'})">
+        <i class="fas fa-th"></i> Explore Collection
+      </button>
+      <button class="btn btn-secondary" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">
+        <i class="fas fa-info-circle"></i> About Us
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="about">
+  <div class="section-container">
+    <div class="section-divider"></div>
+    <h2 class="section-title">About Et Cetera</h2>
+    <p class="section-subtitle">Kualitas terbaik dengan harga terjangkau</p>
+    
+    <div class="about-grid">
+      <div class="about-content">
+        <h3>Tentang Et Cetera</h3>
+        <p>Et Cetera adalah brand fashion lokal yang lahir dari keseharian anak muda dan dinamika gaya hidup modern. Kami menghadirkan produk dengan desain simpel, fungsional, dan relevan untuk berbagai aktivitas—dari ruang santai hingga ruang kreatif.</p>
+        <p>Kami percaya bahwa fashion bukan hanya soal tampilan, tetapi juga tentang sikap dan pilihan yang lebih sadar. Et Cetera berkomitmen pada proses produksi yang bertanggung jawab, pemilihan material yang lebih berkelanjutan, serta dukungan terhadap karya dan kreativitas lokal.</p>
+        <button class="btn btn-primary" style="margin-top: 1rem; width: auto;" onclick="document.getElementById('category').scrollIntoView({behavior: 'smooth'})">Explore Collection</button>
+      </div>
+      <div class="about-image">
+        <img src="assets/etcet.jpeg" alt="Et Cetera Fashion">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY SECTION -->
+<section id="category" class="category">
+  <div class="section-container">
+    <div class="section-divider"></div>
+    <h2 class="section-title">Our Categories</h2>
+    <p class="section-subtitle">Pilih kategori favorit Anda</p>
+    
+    <div class="category-grid">
+      <div class="category-item" onclick="showCollection('tshirt')">
+        <div class="category-image" style="background-image: url('assets/tshirt.jpg')"></div>
+        <div class="category-content">
+          <h3>T-Shirt</h3>
+          <p>Koleksi kaos trendy untuk gaya casual Anda</p>
+        </div>
+      </div>
+
+      <div class="category-item" onclick="showCollection('pants')">
+        <div class="category-image" style="background-image: url('assets/pants.jpg')"></div>
+        <div class="category-content">
+          <h3>Pants</h3>
+          <p>Celana kasual fleksibel untuk aktivitas harian</p>
+        </div>
+      </div>
+
+      <div class="category-item" onclick="showCollection('dress')">
+        <div class="category-image" style="background-image: url('assets/dress.jpg')"></div>
+        <div class="category-content">
+          <h3>Dress</h3>
+          <p>Dress santai dengan potongan modern yang elegan</p>
+        </div>
+      </div>
+
+      <div class="category-item" onclick="showCollection('shirt')">
+        <div class="category-image" style="background-image: url('assets/Shirt.jpg')"></div>
+        <div class="category-content">
+          <h3>Shirt</h3>
+          <p>Kemeja simpel dengan desain clean dan nyaman</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS SECTION -->
+<section id="products" class="products">
+  <div class="section-container">
+    <div class="section-divider"></div>
+    <h2 class="section-title">Featured Products</h2>
+    <p class="section-subtitle">Produk pilihan dari koleksi kami</p>
+    
+    <!-- T-SHIRT COLLECTION -->
+    <div id="collection-tshirt" class="collection-category" style="display: none;">
+      <h3 class="collection-title">Koleksi T-Shirt</h3>
+      <div class="products-grid">
+        <div class="product-item fade-in">
+          <div class="product-image">
+            <img src="assets/graphic.jpg" alt="Basic Tee">
+            <span class="product-badge">NEW</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Basic Tee</h3>
+            <div class="product-price">Rp 129.000</div>
+            <div class="product-rating">★★★★★ (120 reviews)</div>
+          </div>
+        </div>
+
+        <div class="product-item fade-in">
+          <div class="product-image">
+            <img src="assets/over.jpg" alt="Oversized Tee">
+            <span class="product-badge">SALE</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Oversized Tee</h3>
+            <div class="product-price">Rp 149.000</div>
+            <div class="product-rating">★★★★★ (98 reviews)</div>
+          </div>
+        </div>
+
+        <div class="product-item fade-in">
+          <div class="product-image">
+            <img src="assets/basic.jpg" alt="Graphic Tee">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Graphic Tee</h3>
+            <div class="product-price">Rp 159.000</div>
+            <div class="product-rating">★★★★☆ (87 reviews)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANTS COLLECTION -->
+    <div id="collection-pants" class="collection-category" style="display: none;">
+      <h3 class="collection-title">Koleksi Pants</h3>
+      <div class="products-grid">
+        <div class="product-item fade-in">
+          <div class="product-image">
+            <img src="assets/pants1.jpg" alt="Casual Pants">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Casual Pants</h3>
+            <div class="product-price">Rp 199.000</div>
+            <div class="product-rating">★★★★★ (145 reviews)</div>
+          </div>
+        </div>
+
+        <div class="product-item fade-in">
+          <div class="product-image">
+            <img src="assets/pants2.jpg" alt="Straight Pants">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Straight Pants</h3>
+            <div class="product-price">Rp 219.000</div>
+            <div class="product-rating">★★★★★ (112 reviews)</div>
+          </div>
+        </div>
+
+        <div class="product-item fade-in">
+          <div class="product-image">
+            <img src="assets/pants3.jpg" alt="Relaxed Pants">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Relaxed Pants</h3>
+            <div class="product-price">Rp 229.000</div>
+            <div class="product-rating">★★★★☆ (96 reviews)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DRESS COLLECTION -->
+    <div id="collection-dress" class="collection-category" style="display: none;">
+      <h3 class="collection-title">Koleksi Dress</h3>
+      <div class="products-grid">
+        <div class="product-item fade-in">
+          <div class="product-image">
+            <img src="assets/every.jpg" alt="Everyday Dress">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Everyday Dress</h3>
+            <div class="product-price">Rp 249.000</div>
+            <div class="product-rating">★★★★★ (108 reviews)</div>
+          </div>
+        </div>
+
+        <div class="product-item fade-in">
+          <div class="product-image">
+            <img src="assets/flowy.jpg" alt="Flowy Dress">
+            <span class="product-badge">HOT</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Flowy Dress</h3>
+            <div class="product-price">Rp 269.000</div>
+            <div class="product-rating">★★★★★ (132 reviews)</div>
+          </div>
+        </div>
+
+        <div class="product-item fade-in">
+          <div class="product-image">
+            <img src="assets/minimal.jpg" alt="Minimal Dress">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Minimal Dress</h3>
+            <div class="product-price">Rp 289.000</div>
+            <div class="product-rating">★★★★☆ (95 reviews)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHIRT COLLECTION -->
+    <div id="collection-shirt" class="collection-category" style="display: none;">
+      <h3 class="collection-title">Koleksi Shirt</h3>
+      <div class="products-grid">
+        <div class="product-item fade-in">
+          <div class="product-image">
+            <img src="assets/model.jpg" alt="Model Shirt">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Model Shirt</h3>
+            <div class="product-price">Rp 179.000</div>
+            <div class="product-rating">★★★★★ (110 reviews)</div>
+          </div>
+        </div>
+
+        <div class="product-item fade-in">
+          <div class="product-image">
+            <img src="assets/islam.jpg" alt="Ramadhan Shirt">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Ramadhan Shirt</h3>
+            <div class="product-price">Rp 199.000</div>
+            <div class="product-rating">★★★★★ (105 reviews)</div>
+          </div>
+        </div>
+
+        <div class="product-item fade-in">
+          <div class="product-image">
+            <img src="assets/classic.jpg" alt="Classic Shirt">
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">Classic Shirt</h3>
+            <div class="product-price">Rp 219.000</div>
+            <div class="product-rating">★★★★☆ (100 reviews)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO BUY SECTION -->
+<section id="steps" class="steps">
+  <div class="section-container steps-content">
+    <div class="section-divider"></div>
+    <h2 class="section-title steps-title">How To Buy</h2>
+    <p class="section-subtitle steps-subtitle">Proses pembelian yang mudah dan cepat</p>
+    
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h4>Pilih Produk</h4>
+        <p>Jelajahi koleksi kami dan pilih produk yang sesuai dengan gaya Anda</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h4>Pembayaran</h4>
+        <p>Lakukan pembayaran dengan metode pilihan yang Anda inginkan</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h4>Pengiriman</h4>
+        <p>Pesanan dikemas dengan rapi dan dikirim dengan aman ke alamat Anda</p>
+      </div>
+
+      <div class="step-card">
+        <div class="step-number">4</div>
+        <h4>Terima Pesanan</h4>
+        <p>Produk sampai dan siap untuk Anda gunakan dengan percaya diri</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="contact">
+  <div class="section-container">
+    <div class="section-divider"></div>
+    <h2 class="section-title">Contact Us</h2>
+    <p class="section-subtitle">Hubungi kami untuk pertanyaan atau kolaborasi</p>
+    
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="contact-details">
+            <h4>Lokasi</h4>
+            <p>Jakarta, Indonesia</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="contact-details">
+            <h4>Telepon</h4>
+            <p>+62 812 3456 7890</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-details">
+            <h4>Email</h4>
+            <p>hello@etcetera.id</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fab fa-instagram"></i>
+          </div>
+          <div class="contact-details">
+            <h4>Instagram</h4>
+            <p>@etcetera.id</p>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <input type="text" placeholder="Nama Lengkap" required>
+        <input type="email" placeholder="Alamat Email" required>
+        <input type="text" placeholder="Subjek">
+        <textarea placeholder="Pesan Anda" rows="4" required></textarea>
+        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="section-container">
+    <div class="footer-grid">
+      <div class="footer-column">
+        <h4>Tentang Kami</h4>
+        <p>Et Cetera adalah brand fashion lokal yang menyediakan pakaian berkualitas dengan desain modern untuk gaya hidup Anda.</p>
+        <div class="footer-social">
+          <div class="social-icon"><i class="fab fa-facebook"></i></div>
+          <div class="social-icon"><i class="fab fa-instagram"></i></div>
+          <div class="social-icon"><i class="fab fa-twitter"></i></div>
+          <div class="social-icon"><i class="fab fa-youtube"></i></div>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h4>Kategori</h4>
+        <ul>
+          <li><a href="#products" onclick="showCollection('tshirt'); return false;">T-Shirt</a></li>
+          <li><a href="#products" onclick="showCollection('pants'); return false;">Pants</a></li>
+          <li><a href="#products" onclick="showCollection('dress'); return false;">Dress</a></li>
+          <li><a href="#products" onclick="showCollection('shirt'); return false;">Shirt</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Layanan</h4>
+        <ul>
+          <li><a href="#about" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'}); return false;">Tentang Kami</a></li>
+          <li><a href="#steps" onclick="document.getElementById('steps').scrollIntoView({behavior: 'smooth'}); return false;">Panduan Pengiriman</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4>Info Penting</h4>
+        <ul>
+          <li><a href="#contact" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'}); return false;">Hubungi Kami</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Et Cetera · Designed by Raissadi Pasua</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Hamburger Menu
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+// Smooth scrolling dan close menu
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+  });
+});
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+  const navbar = document.querySelector('nav');
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
+
+// Intersection Observer untuk fade-in animation
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -100px 0px'
+};
+
+const observerFadeIn = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.fade-in, .product-item, .step-card, .category-item').forEach(el => {
+  observerFadeIn.observe(el);
+});
+
+// Form submission
+function handleSubmit(event) {
+  event.preventDefault();
+  alert('Terima kasih! Pesan Anda telah dikirim.');
+  event.target.reset();
+}
+
+// Show collection berdasarkan kategori
+function showCollection(category) {
+  // Hide all collections
+  const collections = ['tshirt', 'pants', 'dress', 'shirt'];
+  collections.forEach(cat => {
+    document.getElementById('collection-' + cat).style.display = 'none';
+  });
+  
+  // Show selected collection
+  const selectedCollection = document.getElementById('collection-' + category);
+  if (selectedCollection) {
+    selectedCollection.style.display = 'block';
+    
+    // Scroll ke products section dengan smooth behavior
+    setTimeout(() => {
+      document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  }
+}
+</script>
+</body>
+</html>
